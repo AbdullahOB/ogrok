@@ -117,5 +117,5 @@ func handleInit() {
 	fmt.Printf("1. Start the server: ogrok-server --config %s\n", configPath)
 	fmt.Printf("2. Give clients this token: %s\n", token)
 	fmt.Println()
-	fmt.Println("Note: Make sure DNS for *.%s points to this server", domain)
+	fmt.Printf("Note: Make sure DNS for *.%s points to this server\n", domain)
 }
