@@ -1,0 +1,27 @@
+server:
+  http_port: 80
+  https_port: 443
+  base_domain: "tunnel.yourdomain.com"  # UPDATE THIS
+  admin_port: 8080
+
+auth:
+  tokens:
+    - "your-secure-token-here"  # UPDATE THIS
+
+tls:
+  autocert: true
+  cert_cache_dir: "/var/lib/ogrok/certs"
+  # Optional manual certs (uncomment to use)
+  # cert_file: "/etc/ssl/certs/cert.pem"
+  # key_file: "/etc/ssl/certs/key.pem"
+
+# Logging configuration
+logging:
+  level: "info"
+  format: "json"
+
+# Rate limiting (optional)
+rate_limit:
+  enabled: true
+  requests_per_minute: 60
+  burst: 10

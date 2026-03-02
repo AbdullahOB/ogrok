@@ -1,0 +1,32 @@
+# Binaries
+bin/
+releases/
+*.exe
+*.dll
+*.so
+*.dylib
+ogrok
+ogrok-server
+
+# Build
+dist/
+*.tar.gz
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Test
+coverage.out
+*.test
+
+# Certs (sensitive)
+*.pem
+*.key

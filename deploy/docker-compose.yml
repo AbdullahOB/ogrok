@@ -1,0 +1,40 @@
+services:
+  ogrok-server:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: ogrok-server
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - ./configs:/etc/ogrok:ro
+      - ogrok-certs:/var/lib/ogrok/certs
+    environment:
+      - OGROK_LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+
+volumes:
+  ogrok-certs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/certs

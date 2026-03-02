@@ -1,0 +1,18 @@
+server:
+  http_port: 80
+  https_port: 443
+  base_domain: "ogrok.dev"
+  admin_port: 8080
+
+auth:
+  tokens:
+    - "token-1-xxxx"
+    - "token-2-yyyy"
+    - "dev-token-123"
+
+tls:
+  autocert: true
+  cert_cache_dir: "/var/lib/ogrok/certs"
+  # Optional manual certs (uncomment to use)
+  # cert_file: "/etc/ssl/cert.pem"
+  # key_file: "/etc/ssl/key.pem"
